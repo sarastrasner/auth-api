@@ -3,12 +3,12 @@
 const express = require('express');
 const authRouter = express.Router();
 
-const User = require('../../auth-server/src/auth/models/users.js');
-const basicAuth = require('../../auth-server/src/auth/middleware/basic.js')
-const bearerAuth = require('../../auth-server/src/auth/middleware/bearer.js')
-const permissions = require('../../auth-server/src/auth/middleware/acl.js')
+const User = require('./models/users');
+const basicAuth = require('./middleware/basic')
+const bearerAuth = require('./middleware/bearer.js')
+const permissions = require('./middleware/acl.js')
 
-authRouter.post('/signup', async (req, res, next) => {
+authRouter.post('/signup', async function (req, res, next) {
   try {
     let user = new User(req.body);
     const userRecord = await user.save();
