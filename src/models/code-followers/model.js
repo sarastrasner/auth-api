@@ -3,12 +3,12 @@
 const mongoose = require('mongoose');
 
 const cfSchema = mongoose.Schema({
-  title: { type: String, required: true },
-  id: { type: String, required: true },
-  description: { type: String, required: true },
-  over: { type: Boolean, required: true },
-  win: { type: Boolean, required: true },
-  answers: { type: String, required: true },
+  title: { type: String, required: false },
+  id: { type: String, required: false },
+  description: { type: String, required: false },
+  over: { type: Boolean, required: false },
+  win: { type: Boolean, required: false },
+  answers: { type: Array, required: false , Schema: [String]},
 });
 
 const cfModel = mongoose.model('code-followers', cfSchema);
