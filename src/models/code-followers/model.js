@@ -8,7 +8,7 @@ const cfSchema = mongoose.Schema({
   description: { type: String, required: true },
   over: { type: Boolean, required: true },
   win: { type: Boolean, required: true },
-  answers: { type: Boolean, required: true },
+  answers: { type: String, required: true },
 });
 
 const cfModel = mongoose.model('code-followers', cfSchema);
