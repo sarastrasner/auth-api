@@ -10,14 +10,10 @@ const models = new Map();
 
 router.param('model', (req, res, next) => {
   const modelName = req.params.model;
-  console.log('this is the model name', modelName);
   if (models.has(modelName)) {
-    console.log('inside models.has');
     req.model = models.get(modelName);
-    console.log('this is the req model', req.model);
     next();
   } else {
-    console.log('inside else');
     const fileName = `${__dirname}/../models/${modelName}/model.js`;
     if (fs.existsSync(fileName)) {
       const model = require(fileName);
