@@ -9,8 +9,10 @@ const logger = require('./middleware/logger.js');
 const v1Routes = require('./routes/v1.js');
 const v2Routes = require('./routes/v2.js');
 const authRoutes = require('./auth/routes.js');
-
 const app = express();
+const cors = require('cors')
+
+app.use(cors())
 
 app.use(express.json());
 
